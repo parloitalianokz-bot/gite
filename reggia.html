@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reggia di Caserta: Avventura Reale</title>
+
+    <style>
+
+        :root { --accent: #8e44ad; --bg: #fdfbf7; --text: #333; }
+
+        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg); color: var(--text); margin: 0; padding: 20px; display: flex; justify-content: center; }
+
+        #app { max-width: 600px; width: 100%; }
+
+        .step { display: none; background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+
+        .step.active { display: block; }
+
+        h1 { color: var(--accent); text-align: center; }
+
+        img { width: 100%; border-radius: 15px; margin-bottom: 20px; }
+
+        .navigation { display: flex; justify-content: space-between; margin-top: 20px; }
+
+        button { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 5px; width: 100%; }
+
+        .curiosita { background: #fdf2e9; padding: 15px; border-left: 4px solid #e67e22; margin: 15px 0; font-style: italic; }
+
+        .gioco { background: #e8f8f5; padding: 15px; border-left: 4px solid #27ae60; margin: 15px 0; }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<div id="app">
+
+    <h1>👑 Reggia di Caserta</h1>
+
+
+
+    <div id="step0" class="step active">
+
+        <img src="img/benvenuti.jpeg" alt="Reggia di Caserta">
+
+        <h2>Benvenuti, Esploratori!</h2>
+
+        <p>Ciao, sono la vostra guida digitale! Oggi Antonio, Assel, Camilla e Sara conquisteranno la Reggia. Siete pronti a scoprire i segreti dei Borbone attraverso sfide, quiz e avventure?</p>
+
+        <button onclick="changeStep(1)">Avanti</button>
+
+    </div>
+
+
+
+    <div id="step1" class="step">
+
+        <img src="img/scalone.jpeg" alt="Scalone d'Onore">
+
+        <h2>🏰 I Misteri dello Scalone</h2>
+
+        <p>Benvenute nello scalone reale più grande del mondo. Osservate con occhi da detective:</p>
+
+        <div class="gioco">
+
+            <strong>🕵️‍♀️ Caccia ai Dettagli:</strong>
+
+            <ul>
+
+                <li><strong>La musica "fantasma":</strong> Guardate in alto. Tra le due volte del soffitto, l'architetto faceva nascondere un'intera orchestra. Gli ospiti sentivano la musica dal nulla!</li>
+
+                <li><strong>I guardiani di pietra:</strong> Cercate i due leoni. Rappresentano la forza delle armi e la forza della ragione. Quale vi rappresenta di più?</li>
+
+                <li><strong>Le statue del giudizio:</strong> In cima alla prima rampa vi aspettano tre statue maestose. Al centro c'è la Maestà Regia (il Re), ma guardate bene alla sua sinistra: c'è la statua della <strong>Verità</strong>. La leggenda dice che chiunque salisse quelle scale per incontrare il Re doveva guardare la statua negli occhi e giurare di essere sempre sincero. Voi sareste abbastanza coraggiose da farlo?</li>
+
+            </ul>
+
+        </div>
+
+        <div class="curiosita">
+
+            <strong>📐 Il Trucco della Prospettiva:</strong> Provate il test! Una di voi resti in basso e l'altra in cima. Vi sentirete incredibilmente piccole: il Re usava questo trucco per impressionare gli ospiti!
+
+        </div>
+
+        <button onclick="changeStep(1)">Avanti</button>
+
+        <button onclick="changeStep(-1)" style="background:#777;">Indietro</button>
+
+    </div>
+
+
+
+    <!-- 2. Hub Sale Rappresentanza -->
+
+    <div id="step2" class="step">
+
+        <h2>🏛 Sale di Rappresentanza</h2>
+
+        <p>Le Sale di Rappresentanza della Reggia di Caserta (che comprendono la Sala degli Alabardieri, la Sala delle Guardie del Corpo e la Sala di Alessandro) sono i primi, immensi saloni che gli ospiti incontravano subito dopo lo Scalone d'Onore.</p>
+
+        <p>Questi spazi monumentali avevano un unico, preciso scopo: impressionare i visitatori e mostrare la potenza assoluta del Re prima che si potesse accedere alle stanze private.</p>
+
+        <p><strong>Scegliete quale stanza esplorare per prima:</strong></p>
+
+        
+
+        <button onclick="showRoom('alabardieri')">Sala degli Alabardieri</button>
+
+        <button onclick="showRoom('alessandro')">Sala di Alessandro</button>
+
+        <button onclick="showRoom('stagioni')">Sala delle 4 Stagioni</button>
+
+        <button onclick="showRoom('astrea')">Sala di Astrea</button>
+
+        <button onclick="showRoom('trono')">Sala del Trono</button>
+
+        
+
+        <div class="navigation">
+
+            <button onclick="changeStep(-1)" style="width:48%; background:#777;">Indietro</button>
+
+            <button onclick="changeStep(1)" style="width:48%;">Avanti</button>
+
+        </div>
+
+    </div>
+
+
+
+    <div id="room-alabardieri" class="step">
+
+        <img src="img/alabardieri.jpeg" alt="Sala degli Alabardieri">
+
+        <h2>🛡 Sala degli Alabardieri</h2>
+
+        <p><strong>Il Primo Posto di Blocco del Re</strong></p>
+
+        <div class="gioco">
+
+            <strong>💂‍♂️ Chi erano gli Alabardieri?</strong>
+
+            <p>Immaginate i "buttafuori" personali del Re. Erano soldati sceltissimi armati di alabarda (una lancia con scure). Nessuno poteva oltrepassare questa stanza senza il loro permesso.</p>
+
+        </div>
+
+        <div class="curiosita">
+
+            <strong>🕵️‍♀️ Caccia ai Dettagli:</strong>
+
+            <ul>
+
+                <li><strong>La bozza al Louvre:</strong> Il soffitto mostra un affresco con Ercole che scaccia i vizi. Il disegno di prova originale (il bozzetto) oggi si trova addirittura al Museo del Louvre di Parigi.</li>
+
+                <li><strong>Armi e Arti:</strong> Cercate le decorazioni in stucco con trofei militari. Sopra le porte ci sono gli 8 busti di donna che rappresentano le Arti della conoscenza (Musica, Astronomia, Matematica, Poesia, Geometria, Grammatica, Retorica e Dialettica).</li>
+
+                <li><strong>La sfilata delle Regine:</strong> Cercate i busti di Maria Carolina, Maria Isabella, Maria Cristina e Maria Sofia.</li>
+
+            </ul>
+
+        </div>
+
+        <div class="gioco">
+
+            <strong>📸 Le Due Challenge Fotografiche:</strong>
+
+            <ul>
+
+                <li><strong>Effetto Luce:</strong> Foto dal basso verso l'alto al centro del pavimento per catturare lampadario e soffitto insieme.</li>
+
+                <li><strong>Posa Reale:</strong> Scegliete una regina, mettetevi di profilo e imitate la sua espressione fiera!</li>
+
+            </ul>
+
+        </div>
+
+        <button onclick="showHub()">Torna alle Sale</button>
+
+    </div>
+
+
+
+    <!-- Scheda Sala di Alessandro -->
+
+    <div id="room-alessandro" class="step">
+
+        <img src="img/alessandro.jpeg" alt="Sala di Alessandro">
+
+        <h2>👑 Sala di Alessandro: Il Confine del Tempo</h2>
+
+        <p>Benvenute al centro esatto della facciata! Questa sala è un confine invisibile tra il Settecento (a sinistra) e l'Ottocento (a destra).</p>
+
+        
+
+        <div class="curiosita">
+
+            <strong>🎭 Il Grande "Guaio" dell'Architetto:</strong> 
+
+            <p>L'architetto Vanvitelli ebbe un colpo quando vide il soffitto: le colonne sembravano troppo magre rispetto alle enormi figure dipinte! Dovette inventarsi trucchi decorativi per "allargare" l'effetto delle colonne.</p>
+
+        </div>
+
+
+
+        <div class="gioco">
+
+            <strong>🕵️‍♀️ Caccia al Tesoro: 3 Dettagli da Scovare</strong>
+
+            <ul>
+
+                <li><strong>Il Camino con le Sfingi:</strong> Cercate il caminetto in marmo bianco con il profilo di Alessandro Magno e due misteriose sfingi in marmo nero ai lati.</li>
+
+                <li><strong>Le poltrone "Parigine" e la N Segreta:</strong> Trovate i due troni dorati con pomelli in avorio arrivati direttamente da Parigi e usati da Gioacchino Murat e sua moglie Carolina Bonaparte. Erano stati costruiti per l'Imperatore Napoleone Bonaparte, che però li rifiutò! Aguzzate la vista e guardate le gambe delle sedie: riuscirete a scovare la lettera "N" di Napoleone?</li>
+
+                <li><strong>I Cavalli e i Re:</strong> Cercate il quadro del Re Carlo mentre cede la corona a suo figlio Ferdinando, che all'epoca aveva solo 8 anni!</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="gioco">
+
+            <strong>📸 La Challenge Fotografica: Il Bivio dei Secoli</strong>
+
+            <p>Mettetevi al centro esatto della sala. Alla vostra sinistra c'è il passato (il '700) e alla vostra destra il futuro (l''800). Fatevi una foto con le braccia spalancate, come vere viaggiatrici del tempo!</p>
+
+        </div>
+
+
+
+        <div class="gioco" style="border-left: 4px solid #8e44ad;">
+
+            <strong>👣 Prossima Tappa:</strong>
+
+            <p>Siete pronte a cambiare stagione? Uscite dalla sala e <strong>andate a sinistra</strong>: vi attende la coloratissima Sala delle Quattro Stagioni!</p>
+
+        </div>
+
+
+
+        <button onclick="showHub()">Torna alle Sale</button>
+
+    </div>
+
+
+
+    <!-- Scheda Sala delle Quattro Stagioni -->
+
+    <div id="room-stagioni" class="step">
+
+        <img src="img/stagioni.jpeg" alt="Sala delle Quattro Stagioni">
+
+        <h2>🌸☀️ Le Sale delle Quattro Stagioni 🍂❄️</h2>
+
+        <p><strong>Il Salotto Segreto dei Prìncipi Ereditari</strong></p>
+
+        <p>Benvenute nell'ala del Settecento (l'Appartamento Vecchio). Qui l'atmosfera cambia completamente: siamo nelle stanze private dove il principe Ferdinando IV e la principessa Maria Carolina d'Asburgo si rilassavano e giocavano lontano dagli occhi della corte. Sono quattro stanze collegate, ognuna dedicata a una stagione dell'anno!</p>
+
+        
+
+        <div class="gioco">
+
+            <strong>🕵️‍♀️ Caccia al Tesoro: Trova i Simboli della Natura</strong>
+
+            <ul>
+
+                <li><strong>Sala della Primavera:</strong> Cercate la dea Flora coronata di fiori freschi e circondata da amorini che volano nel cielo limpido.</li>
+
+                <li><strong>Sala dell'Estate:</strong> Trovate le spighe di grano dorate e i grandi carri dedicati a Cerere, la dea dell'agricoltura.</li>
+
+                <li><strong>Sala dell'Autunno:</strong> Guardate in alto per scovare i grappoli d'uva, i tralci di vite e la festa dedicata a Bacco, il dio del vino.</li>
+
+                <li><strong>Sala dell'Inverno:</strong> Il cielo è cupo e nuvoloso; notate l'allegoria dell'inverno che cerca di scaldarsi vicino a un braciere acceso.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="curiosita">
+
+            <strong>💡 2 Chicche Segrete da Notare:</strong>
+
+            <ul>
+
+                <li><strong>I Lampadari di Vetro:</strong> Sopra le vostre teste ci sono spettacolari lampadari in pregiatissimo vetro di Murano arrivato direttamente da Venezia!</li>
+
+                <li><strong>Un Orologio da Fiaba:</strong> Nella Sala dell'Inverno cercate il prezioso orologio a pendolo a forma di tempietto che arriva direttamente dalla Francia.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="gioco">
+
+            <strong>📸 Le Due Challenge Fotografiche:</strong>
+
+            <ul>
+
+                <li><strong>Cambio di Stagione:</strong> Scegliete la stanza che rappresenta il vostro mese di nascita. Mettetevi al centro, sotto il lampadario di Murano, e scattatevi un selfie guardando in alto verso l'affresco.</li>
+
+                <li><strong>Il Tavolo di Pietra:</strong> Nella Sala dell'Estate cercate il tavolino con il piano in legno pietrificato. Fate una foto macro ai dettagli della superficie: sembra roccia, ma una volta era un vero albero!</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="gioco" style="border-left: 4px solid #8e44ad;">
+
+            <strong>👣 Cosa volete fare adesso?</strong>
+
+            <p>La vostra avventura continua! Potete scegliere tra queste opzioni:</p>
+
+            <ul>
+
+                <li><strong>Proseguire la visita:</strong> Continuate per scoprire in ordine lo <strong>Studiolo di Ferdinando IV</strong> (il suo rifugio privato), il <strong>Boudoir di Maria Carolina</strong> (l'intima stanza della Regina) e la grandiosa <strong>Biblioteca Palatina</strong>.</li>
+
+                <li><strong>Cambiare rotta:</strong> Tornate indietro attraverso la <strong>Sala di Alessandro</strong> per raggiungere la <strong>Sala di Astrea</strong>.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <button onclick="showHub()">Torna all'elenco delle sale</button>
+
+    </div>
+
+    
+
+    <!-- Scheda Sala di Astrea -->
+
+    <div id="room-astrea" class="step">
+
+        <img src="img/astrea.jpeg" alt="Sala di Astrea">
+
+        <h2>⚖️ Sala di Astrea</h2>
+
+        <p><strong>L'Anticamera dei Segreti e degli Ambasciatori</strong></p>
+
+        <p>Benvenute nell'ala dell'Ottocento (l'Appartamento Nuovo). Questa stanza era la sala d'attesa ufficiale per i diplomatici e gli ambasciatori stranieri che aspettavano di essere ricevuti a corte. È interamente dedicata ad Astrea, la mitica dea della Giustizia. Gioacchino Murat e sua moglie Carolina Bonaparte fecero decorare questa sala per lanciare un messaggio chiaro agli ospiti: "In questo regno comanda la legge!".</p>
+
+        
+
+        <div class="gioco">
+
+            <strong>🕵️‍♀️ Caccia ai Dettagli:</strong>
+
+            <ul>
+
+                <li><strong>Il Pavimento a Labirinto:</strong> Guardate sotto i vostri piedi. Il pavimento in marmo di Carrara riproduce un vero e proprio labirinto geometrico, simbolo del viaggio difficile per trovare la verità e la conoscenza.</li>
+
+                <li><strong>Il soffitto con il "Camuffamento" Segreto:</strong> L'affresco è di Jacques Berger. Inizialmente Astrea aveva il volto della Regina Carolina Bonaparte. Dopo la caduta dei francesi, per evitare guai, il pittore aggiunse furbescamente dei gigli d'oro (simbolo dei Borbone) sulla corona per far finta che il quadro fosse sempre stato dedicato ai nuovi regnanti!</li>
+
+                <li><strong>Le Statue sopra i Camini:</strong> Sopra i caminetti cercate gli spettacolari altorilievi dorati che raffigurano Astrea, la dea Minerva, genietti alati e cigni.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="gioco">
+
+            <strong>📸 Le Due Challenge Fotografiche:</strong>
+
+            <ul>
+
+                <li><strong>Escape Room Reale:</strong> Scegliete una linea del labirinto sul pavimento. Fatevi riprendere mentre camminate perfettamente dritte seguendo le righe scure, come se foste in un labirinto segreto!</li>
+
+                <li><strong>L'Innocenza contro l'Errore:</strong> Scegliete due personaggi diversi dall'affresco sul soffitto (uno fiero e uno spaventato). Mettetevi in posa l'una contro l'altra imitando le loro espressioni!</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <button onclick="showHub()">Torna all'elenco delle sale</button>
+
+    </div>
+
+
+
+    <!-- Scheda Sala del Trono e Appartamenti -->
+
+    <div id="room-trono" class="step">
+
+        <img src="img/trono.jpeg" alt="Sala del Trono">
+
+        <h2>👑 Sala del Trono: Il Cuore del Potere</h2>
+
+        <p><strong>Il gran finale dell'appartamento</strong></p>
+
+        <p>Siete arrivate nel salone più grande e importante di tutta la Reggia. Questa sala ha avuto una storia lunghissima: iniziata nel 1811, ci sono voluti più di 30 anni per finirla, ed è stata inaugurata solo nel 1845! Era qui che il Re riceveva i diplomatici e celebrava le cerimonie più solenni. È un'esplosione di oro zecchino che vi farà sentire piccolissime!</p>
+
+        
+
+        <div class="gioco">
+
+            <strong>🕵️‍♀️ Caccia ai Dettagli nella Sala del Trono:</strong>
+
+            <ul>
+
+                <li><strong>Il Trono con le Sirene:</strong> Avvicinatevi per osservare i dettagli dorati. I braccioli hanno la forma di leoni alati, mentre alla base ci sono delle piccole sirene, simbolo di Napoli!</li>
+
+                <li><strong>Il soffitto di Gennaro Maldarelli:</strong> Ammirate l'affresco del 1844: rappresenta Re Carlo di Borbone che posa la prima pietra della Reggia. È un "fumetto storico" sopra le vostre teste!</li>
+
+                <li><strong>I simboli reali:</strong> Cercate lungo le pareti e sulle finiture d'oro i gigli dorati, simbolo della dinastia dei Borbone.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="gioco">
+
+            <strong>📸 Challenge: Il Ritratto del Sovrano</strong>
+
+            <p>Mettetevi in posa davanti al trono (senza toccare nulla!). Fate una foto fingendo di essere le sovrane assolute del Regno: una con il braccio teso e l'altra con lo sguardo fiero verso i vostri "ospiti". È il momento perfetto per uno scatto da vere regine!</p>
+
+        </div>
+
+
+
+        <hr>
+
+
+
+        <h2>🚪 🛏️ Gli Appartamenti Reali: Nella Vita di Tutti i Giorni</h2>
+
+        <p>Uscendo dal trono, il percorso vi porta dritti nel cuore degli Appartamenti Reali. Qui si passa dalla politica alla vita quotidiana di re, regine e principesse.</p>
+
+
+
+        <div class="curiosita">
+
+            <strong>🕵️‍♀️ Caccia ai Dettagli nell'Appartamento Privato:</strong>
+
+            <ul>
+
+                <li><strong>I Passaggi Segreti della Biblioteca:</strong> Esplorate le stanze della Biblioteca Palatina (con oltre 14.000 libri antichi!). Molte librerie sono finte e nascondono porte segrete usate dai reali.</li>
+
+                <li><strong>Il Primo Bidè d'Italia:</strong> Nel bagno della Regina Maria Amalia, cercate la vasca di marmo e l'oggetto misterioso che i piemontesi scambiarono per una "chitarra"!</li>
+
+                <li><strong>Il Presepe Gigante:</strong> Trovate la sala con lo storico Presepe Reale: immenso, curato in ogni dettaglio e vestito di vera seta dell'epoca.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <h2>🖼️ La Gran Galleria: La Stanza dei Record</h2>
+
+        <p>È in assoluto l'ambiente singolo più grande di tutta la Reggia! Questo immenso corridoio con il soffitto a volta (alto 16 metri!) un tempo collegava l'appartamento del Re a quello del Principe Ereditario.</p>
+
+
+
+        <div class="gioco">
+
+            <strong>📸 L'Ultima Challenge: L'Infilata Reale</strong>
+
+            <p>Mettetevi all'inizio della stanza. Fate un video in cui una di voi cammina allontanandosi verso il fondo e l'altra la riprende: l'effetto visivo delle pareti che sembrano stringersi creerà un video prospettico perfetto!</p>
+
+        </div>
+
+
+
+        <div class="gioco" style="border-left: 4px solid #8e44ad;">
+
+            <strong>👣 Verso il Parco:</strong>
+
+            <p>Ora la parte interna della Reggia vi saluta davvero. Superata la Gran Galleria, è tempo di uscire all'aria aperta e dirigervi verso l'immenso Parco Reale per scoprire le cascate, i giochi d'acqua delle fontane e i misteriosi Giardini Inglesi!</p>
+
+        </div>
+
+
+
+        <button onclick="showHub()">Torna all'elenco delle sale</button>
+
+    </div>
+
+
+
+    <!-- 3. Navetta verso il Giardino -->
+
+    <div id="step3" class="step">
+
+        <img src="img/navetta.jpeg" alt="Navetta Reggia">
+
+        <h2>🚌 🌲 Direzione Natura: La Navetta verso il Giardino Inglese</h2>
+
+        <p><strong>Il portale segreto verso una giungla da favola</strong></p>
+
+        <p>Dopo aver camminato tra l'oro e i marmi del palazzo, è il momento di staccare la spina! Per raggiungere il punto più alto del parco senza stancarvi, farete un salto a bordo della navetta ufficiale della Reggia.</p>
+
+        
+
+        <div class="gioco">
+
+            <strong>🚌 La Missione sulla Navetta:</strong>
+
+            <ul>
+
+                <li><strong>Come funziona:</strong> La navetta si prende proprio all'uscita del palazzo. Vi porterà in cima, costeggiando i 3 chilometri di fontane e vasche giganti.</li>
+
+                <li><strong>Il gioco a bordo:</strong> Mettetevi vicino al finestrino. Durante la salita, guardate l'acqua: le fontane sono piene di pesci giganti e cigni. Il bus vi lascerà alla fermata, esattamente accanto alla spettacolare Grande Cascata (alta ben 70 metri!) e all'ingresso del misterioso Giardino Inglese.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <button onclick="changeStep(1)">Avanti: Giardino Inglese</button>
+
+        <button onclick="changeStep(-1)" style="background:#777;">Indietro</button>
+
+    </div>
+
+    
+
+    
+
+    
+
+
+
+   <!-- Scheda Giardino Inglese -->
+
+    <div id="step4" class="step">
+
+        <img src="img/giardino.jpeg" alt="Giardino Inglese">
+
+        <h2>🌿 Il Giardino Inglese: Il Bosco delle Illusioni</h2>
+
+        <p>A differenza dei giardini geometrici del palazzo, questo posto sembra un bosco selvaggio, ma è tutto un trucco! Fu voluto dalla Regina Maria Carolina per fare colpo su tutta Europa. Ogni singolo albero, finto rudere e laghetto è stato progettato per sembrare nato per magia.</p>
+
+        
+
+        <div class="gioco">
+
+            <strong>🕵️‍♀️ Caccia ai Segreti nel Giardino:</strong>
+
+            <ul>
+
+                <li><strong>La Regina delle Camelie:</strong> Cercate la celebre "Camelia Madre". È una pianta antichissima, la primissima arrivata in Europa dal Giappone nel Settecento come regalo per la Regina!</li>
+
+                <li><strong>Il Bagno di Venere (Il Laghetto Incantato):</strong> Camminando troverete un piccolo lago nascosto circondato da alberi giganti; al centro dell'acqua sbuca la bellissima statua della dea Venere. Sembra un luogo segreto delle fiabe.</li>
+
+                <li><strong>Il Criptoportico (I Finti Ruderi):</strong> Questo è il posto più misterioso. Entrerete in un finto tempio romano in rovina. Gli architetti lo hanno costruito apposta "già rotto" per dare la sensazione di aver scoperto una città fantasma dimenticata dal tempo!</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="gioco">
+
+            <strong>📸 Le Due Challenge Fotografiche:</strong>
+
+            <ul>
+
+                <li><strong>Lo Specchio di Venere:</strong> Al laghetto incantato, cercate il punto in cui l'acqua è calma e scattate una foto in cui si vede la statua di Venere riflessa perfettamente, come in uno specchio magico.</li>
+
+                <li><strong>Esploratrici del Tempio Perduto:</strong> Nel Criptoportico, mettetevi in posa tra le colonne con una mano sulla fronte, guardando verso l'alto con aria stupita: sembrerete due archeologhe che hanno appena scoperto un tesoro!</li>
+
+            </ul>
+
+        </div>
+
+
+        <button onclick="changeStep(1)">Avanti: Parco e Fontane</button>
+
+        <button onclick="changeStep(-1)" style="background:#777;">Indietro</button>
+
+    </div>
+
+
+
+    <!-- 5. La Discesa delle Fontane -->
+
+    <div id="step5" class="step">
+
+        <img src="img/fontane.jpeg" alt="La via dell'acqua">
+
+        <h2>💦 La Discesa delle Fontane: La Via dell'Acqua</h2>
+
+        <p><strong>Il ritorno a piedi tra i giganti di pietra</strong></p>
+
+        <p>Dopo l'esplorazione del bosco segreto, inizia il viaggio di ritorno verso il palazzo! Questa volta farete una camminata tutta in discesa (circa 3 chilometri) seguendo il percorso dell'acqua, tra fontane spettacolari popolate da statue giganti.</p>
+
+        
+
+        <div class="gioco">
+
+            <strong>🕵️‍♀️ Caccia alle Storie di Pietra (Dall'alto verso il basso):</strong>
+
+            <ul>
+
+                <li><strong>La Cascata dei Cani (Diana e Atteone):</strong> È la fontana più incredibile! A sinistra la dea Diana fa il bagno con le ninfe; a destra Atteone, trasformato in cervo, viene inseguito dai suoi stessi cani.</li>
+
+                <li><strong>La Fontana dei Delfini:</strong> L'acqua esce dalle bocche di tre mostruosi delfini di pietra con facce bizzarre e arrabbiate, come li immaginavano nel Settecento.</li>
+
+                <li><strong>La Fontana di Eolo (Il Dio del Vento):</strong> Una vera scenografia teatrale: una grotta da cui le divinità dei venti (gli Zefiri) soffiano forte per scatenare una tempesta.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <div class="curiosita">
+
+            <strong>💡 Il Trucco Ottico del "Finto Corto":</strong> 
+
+            <p>Guardate il palazzo in fondo: sembra vicinissimo, vero? È un effetto ottico dell'architetto Vanvitelli che ha progettato le vasche con misure studiate per far sembrare il viale molto più corto di quanto sia in realtà!</p>
+
+        </div>
+
+
+
+        <div class="gioco">
+
+            <strong>📸 Le Due Challenge Fotografiche:</strong>
+
+            <ul>
+
+                <li><strong>L'Attacco dei Delfini:</strong> Mettetevi davanti a una delle bocche di pietra e fingete di essere terrorizzate dal "mostro marino" che sta per prendervi!</li>
+
+                <li><strong>La Prospettiva Infinita:</strong> Fermatevi al centro del viale d'acqua e fatevi fare una foto di spalle guardando verso il palazzo: sembrerete al centro esatto di un quadro simmetrico.</li>
+
+            </ul>
+
+        </div>
+
+
+
+        <button onclick="changeStep(-1)" style="background:#777;">Indietro</button>
+
+        <button onclick="resetApp()" style="background:#8e44ad;">Fine Avventura: Ritorna all'Inizio</button>
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+    let currentStep = parseInt(localStorage.getItem('currentStep')) || 0;
+
+    
+
+    function init() {
+
+        document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+
+        const savedRoom = localStorage.getItem('currentRoom');
+
+        if (savedRoom) {
+
+            document.getElementById('room-' + savedRoom).classList.add('active');
+
+        } else {
+
+            document.getElementById('step' + currentStep).classList.add('active');
+
+        }
+
+    }
+
+
+
+    function changeStep(n) {
+
+        document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+
+        currentStep += n;
+
+        if(currentStep < 0) currentStep = 0;
+
+        if(currentStep > 5) currentStep = 5;
+
+        localStorage.setItem('currentStep', currentStep);
+
+        localStorage.removeItem('currentRoom');
+
+        document.getElementById('step' + currentStep).classList.add('active');
+
+    }
+
+
+
+    function showRoom(roomId) {
+
+        document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+
+        document.getElementById('room-' + roomId).classList.add('active');
+
+        localStorage.setItem('currentRoom', roomId);
+
+    }
+
+
+
+    function showHub() {
+
+        document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+
+        document.getElementById('step2').classList.add('active');
+
+        localStorage.removeItem('currentRoom');
+
+    }
+
+    function resetApp() {
+        // Pulisce la memoria dei progressi
+        localStorage.clear();
+        // Resetta la variabile di stato
+        currentStep = 0;
+        // Nasconde tutti i div e mostra il primo step
+        document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
+        document.getElementById('step0').classList.add('active');
+    }
+
+    init();
+
+    
+
+</script>
+
+</body>
+
+</html> 
+
